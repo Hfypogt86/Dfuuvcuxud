@@ -1,0 +1,1639 @@
+<?php 
+
+/*غير الحقوق واثبت انك فاشل
+
+اذا تريد تنقل اذكر اسمي او اسم قناتي */
+
+/*====================
+
+CH : @bero2Files
+
+DEV : @SeroBots
+
+TWS : @TM_bero2BOT
+
+====================*/
+
+ob_start();
+
+$API_KEY = "5645705707:AAGrD542Ba2PGeI7s_pI4w93gpjzT_4x_Vc";
+
+define('API_KEY',$API_KEY);
+
+echo "<a href='https://api.telegram.org/bot$API_KEY/setwebhook?url=".$_SERVER['SERVER_NAME']."".$_SERVER['SCRIPT_NAME']."'>setwebhook</a>";
+
+echo file_get_contents("https://api.telegram.org/bot$API_KEY/getme?url=".$_SERVER['SERVER_NAME']."".$_SERVER['SCRIPT_NAME']);
+
+function bot($method,$datas=[]){
+
+$url = "https://api.telegram.org/bot".API_KEY."/".$method;
+
+$ch = curl_init();
+
+curl_setopt($ch,CURLOPT_URL,$url); curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+
+curl_setopt($ch,CURLOPT_POSTFIELDS,$datas);
+
+$res = curl_exec($ch);
+
+if(curl_error($ch)){
+
+var_dump(curl_error($ch));
+
+}else{return json_decode($res);}}
+
+#     @SeroBots     #
+
+$update = json_decode(file_get_contents('php://input'));
+
+@$message = $update->message;
+
+@$from_id = $message->from->id;
+
+@$chat_id = $message->chat->id;
+
+@$message_id = $message->message_id;
+
+@$first_name = $message->from->first_name;
+
+@$last_name = $message->from->last_name;
+
+@$username = $message->from->username;
+
+@$text= $message->text;
+
+@$firstname = $update->callback_query->from->first_name;
+
+@$usernames = $update->callback_query->from->username;
+
+@$chatid = $update->callback_query->message->chat->id;
+
+@$fromid = $update->callback_query->from->id;
+
+$message  = $update->message;
+
+$settings = json_decode(file_get_contents("wiki.json"),true);
+
+$text    = $message->text;
+
+ $data = $update->callback_query->data;
+
+$chat_id  = $message->chat->id;
+
+$name   = $message->from->first_name;
+
+$from_id = $message->from->id;
+
+$u = explode("\n",file_get_contents("memb.txt"));
+
+$c = count($u)-1;
+
+$modxe = file_get_contents("usr.txt");
+
+mkdir("whm");
+
+mkdir('data');
+
+mkdir('rooms');
+
+$hello7 = file_get_contents("rooms/$from_id.txt");
+
+$bero2 = $message->message_id;
+
+$bero20= file_get_contents("https://api.telegram.org/bot$API_KEY/getChatMember?chat_id=$chat_id&user_id=".$from_id);
+
+$bero21= json_decode($bero20, true);
+
+$bero22 = $bero21['result']['status'];
+
+$ch = file_get_contents("whm/$chat_id.txt");
+
+$setklesha = file_get_contents("whm/modsetkle$chat_id.txt");
+
+$myklish = file_get_contents("whm/setkle$chat_id.txt");
+
+$name_tg = "[$first_name](tg://user?id=$from_id)";
+
+//2
+
+$settings = json_decode(file_get_contents("BotInfo.json"),true);
+
+$bero2 = explode("\n",file_get_contents("bero2.txt"));
+
+$bero2 = count($bero2)-1;
+
+$SeroBots = file_get_contents("SeroBots.txt");
+
+if ($update && !in_array($chat_id, $bero2)) {
+
+    file_put_contents("bero2.txt", $chat_id."\n",FILE_APPEND);
+
+    bot('sendmessage',[
+
+'chat_id'=>$sudo,
+
+'text'=>"
+
+",
+
+'parse_mode'=>"MarkDown",
+
+'disable_web_page_preview' =>true,
+
+]); 
+
+  }
+
+  
+
+if(isset($update->callback_query)){
+
+$up = $update->callback_query;
+
+$chat_id = $up->message->chat->id;
+
+$from_id = $up->from->id;
+
+$user = $up->from->username;
+
+$name = $up->from->first_name;
+
+$message_id = $up->message->message_id;
+
+$data = $up->data;
+
+}
+
+$my_code = $settings["acc"]["ids"][$from_id];
+
+$yur_code = $settings["acc"]["ids"][$FileMember8];
+
+if($settings["acc"]["modeac"][$from_id] !== "yes") {
+
+if($text == "/start") {
+
+	bot("sendMessage",["chat_id"=>$chat_id,
+
+"text"=>"
+
+- اهلا بك في بوت الدردشه الاجتماعيه ؛🏳
+
+- البوت يعمل علي سيرفرات سريعه عدم التوقف ؛⚠
+
+",
+
+'parse_mode'=>"MarkDown",
+
+'disable_web_page_preview' =>true,
+
+'reply_to_message_id'=>$message_id,
+
+"reply_markup"=>json_encode([
+
+"inline_keyboard"=>[
+
+[['text'=>"بدء استخدام البوت" ,'callback_data'=>'start']],
+
+]])
+
+]);
+
+}
+
+}
+
+if($settings["acc"]["modeac"][$from_id] == "yes") {
+
+if($text == "/start") {
+
+	bot("sendMessage",[
+
+"chat_id"=>$chat_id,
+
+"text"=>"
+
+*مرحبا بك في قائمه التحكم ؛💹*
+
+",
+
+'parse_mode'=>"MarkDown",
+
+'disable_web_page_preview' =>true,
+
+'reply_to_message_id'=>$message_id,
+
+"reply_markup"=>json_encode([
+
+"inline_keyboard"=>[
+
+[['text'=>"- تحديد الشخصيه ؛ ( 🚻 )",'callback_data'=>"grupw1"]],
+
+[['text'=>"- تحديد الحالة الشخصيه ؛💟",'callback_data'=>"grupw0"]],
+
+[['text'=>"- تحديد العمر ؛ 🔷",'callback_data'=>"grupw2"]],
+
+[['text'=>"- تغير الاسم ؛〽",'callback_data'=>"grupw"]],
+
+[['text'=>"- بدء الدردشه ؛ ✅",'callback_data'=>"on22bt"]],
+
+[['text'=>"- بدء الدردشه ؛ ( بدون معلومات شخصيه )",'callback_data'=>"on2f2bt"]],
+
+[['text'=>"- صنع روم خاص ( لشخصين فقط  عشوائي )",'callback_data'=>"roomon2"]],
+
+[['text'=>"- معلومات حسابك ؛📝",'callback_data'=>"info"]],
+
+[['text'=>"- تسجيل الخروج ؛⭕",'callback_data'=>"off22bt"]],
+
+]])
+
+]); 
+
+$settings["acc"]["mode"][$my_code]= null;
+
+$settings = json_encode($settings,32|128|265);
+
+file_put_contents("BotInfo.json",$settings);
+
+}
+
+}
+
+$codemake = substr(str_shuffle('abcdefghijklmnopqrstuvwxyz12345689807891234568980789'),1,12);
+
+if($data == "start"){
+
+if($my_code == null){
+
+bot('EditMessageText',[
+
+'chat_id'=>$chat_id,
+
+'message_id'=>$message_id,
+
+'text'=>"
+
+*- تم انشاء حسابك الشخصي بنجاح ؛☑*
+
+معلومات حسابك :
+
+اسمك الشخصي : $name
+
+ايديك : $from_id
+
+كود حسابك : $codemake
+
+",
+
+'parse_mode'=>"MarkDown",
+
+'disable_web_page_preview' =>true,
+
+"reply_markup"=>json_encode([
+
+"inline_keyboard"=>[
+
+[['text'=>"- تحديد الشخصيه ؛ ( 🚻 )",'callback_data'=>"grupw1"]],
+
+[['text'=>"- تحديد الحالة الشخصيه ؛💟",'callback_data'=>"grupw0"]],
+
+[['text'=>"- تحديد العمر ؛ 🔷",'callback_data'=>"grupw2"]],
+
+[['text'=>"- تغير الاسم ؛〽",'callback_data'=>"grupw"]],
+
+[['text'=>"- بدء الدردشه ؛ ✅",'callback_data'=>"on22bt"]],
+
+[['text'=>"- بدء الدردشه ؛ ( بدون معلومات شخصيه )",'callback_data'=>"on2f2bt"]],
+
+[['text'=>"- صنع روم خاص ( لشخصين فقط  عشوائي )",'callback_data'=>"roomon2"]],
+
+[['text'=>"- معلومات حسابك ؛📝",'callback_data'=>"info"]],
+
+[['text'=>"- تسجيل الخروج ؛⭕",'callback_data'=>"off22bt"]],
+
+]])
+
+]);
+
+$settings["acc"]["ids"][$from_id]= $codemake;
+
+$settings["basg"][]= $from_id;
+
+$settings["acc"]["modeac"][$from_id]= "yes";
+
+$settings["acc"]["id"][$codemake]= $from_id;
+
+$settings["acc"]["name"][$codemake]= $name;
+
+$settings["acc"]["type"][$codemake]= "لم تختار شخصيتك";
+
+$settings["acc"]["yr"][$codemake]= "غير معروف";
+
+$settings["acc"]["mrtbt"][$codemake]= "غير معروف";
+
+$settings = json_encode($settings,32|128|265);
+
+file_put_contents("BotInfo.json",$settings);
+
+}
+
+}
+
+if($data == "start"){
+
+if($my_code !== null){
+
+bot('EditMessageText',[
+
+'chat_id'=>$chat_id,
+
+'message_id'=>$message_id,
+
+'text'=>"
+
+- لديگ حسـآب بآلفعل عزيزي آلمـسـتخدمۭ .
+
+حسـآبگ ( $my_code )
+
+",
+
+'parse_mode'=>"MarkDown",
+
+'disable_web_page_preview' =>true,
+
+"reply_markup"=>json_encode([
+
+"inline_keyboard"=>[
+
+[['text'=>"$my_code",'callback_data'=>"profile"]],
+
+]])
+
+]);
+
+}
+
+}
+
+$FileMembersave = $settings["priv"]["freind"][$my_code];
+
+$FileMember8 = $bero2[array_rand($bero2,1)];
+
+$yur_code = $settings["acc"]["ids"][$FileMember8];
+
+if($data == "roomon2"){	
+
+if($settings["priv"]["mode"][$my_code]== "on"){
+
+bot('EditMessageText',[
+
+'chat_id'=>$chat_id,
+
+'message_id'=>$message_id,
+
+'text'=>"
+
+*- خطأ عزيزي المستخدم انت داخل روم مع شخص ثاني ؛ ▶*
+
+- [$FileMembersave](tg://user?id=$FileMembersave)
+
+",
+
+'parse_mode'=>"MarkDown",
+
+'disable_web_page_preview' =>true,
+
+'reply_to_message_id'=>$message_id,
+
+"reply_markup"=>json_encode([
+
+"inline_keyboard"=>[
+
+[['text'=>"- انهاء الروم",'callback_data'=>"ExitRoom"]],
+
+[['text'=>"$FileMembersave",'url'=>"tg://user?id=$FileMembersave"]],
+
+]])
+
+]); 
+
+}
+
+}
+
+if($data == "roomon2"){	
+
+if($settings["priv"]["mode"][$my_code]!== "on"){
+
+bot('EditMessageText',[
+
+'chat_id'=>$chat_id,
+
+'message_id'=>$message_id,
+
+'text'=>"
+
+*- تم بنجاح دخول الي روم خاص ؛ ⏸*
+
+- [$FileMember8](tg://user?id=$FileMember8)
+
+",
+
+'parse_mode'=>"MarkDown",
+
+'disable_web_page_preview' =>true,
+
+'reply_to_message_id'=>$message_id,
+
+"reply_markup"=>json_encode([
+
+"inline_keyboard"=>[
+
+[['text'=>"- انهاء الروم",'callback_data'=>"ExitRoom"]],
+
+[['text'=>"$FileMember8",'url'=>"tg://user?id=$FileMember8"]],
+
+]])
+
+]); 
+
+$settings["priv"]["mode"][$my_code]= "on";
+
+$settings["priv"]["freind"][$my_code]= $FileMember8;
+
+$settings["priv"]["me"][$my_code]= $from_id;
+
+$settings["priv"]["mode"][$yur_code]= "on";
+
+$settings["priv"]["freind"][$yur_code]= $from_id;
+
+$settings["priv"]["me"][$yur_code]= $FileMember8;
+
+$settings = json_encode($settings,32|128|265);
+
+file_put_contents("BotInfo.json",$settings);
+
+}
+
+}
+
+if($data == "ExitRoom"){	
+
+bot('EditMessageText',[
+
+'chat_id'=>$chat_id,
+
+'message_id'=>$message_id,
+
+'text'=>"
+
+*تم انهاء الروم بنجاح * 
+
+مع : $FileMembersave
+
+كود آلروم : *گود خآص*
+
+",
+
+'parse_mode'=>"MarkDown",
+
+'disable_web_page_preview' =>true,
+
+'reply_to_message_id'=>$message_id,
+
+"reply_markup"=>json_encode([
+
+"inline_keyboard"=>[
+
+[['text'=>"رجوع",'callback_data'=>"back"]],
+
+[['text'=>"$FileMembersave",'url'=>"tg://user?id=$FileMembersave"]],
+
+]])
+
+]); 
+
+$settings["priv"]["mode"][$my_code]= null;
+
+$settings["priv"]["freind"][$my_code]= null;
+
+$settings["priv"]["mode"][$yur_code]= null;
+
+$settings["priv"]["freind"][$yur_code]= null;
+
+$settings = json_encode($settings,32|128|265);
+
+file_put_contents("BotInfo.json",$settings);
+
+}
+
+$onmd2 = $settings["priv"]["mode"][$my_code];
+
+if($text and $onmd2=="on") {
+
+bot('forwardMessage',[
+
+   'chat_id'=>$FileMembersave,
+
+   'message_id'=>$message->message_id,
+
+   'from_chat_id'=>$chat_id
+
+  ]);
+
+}
+
+if($data == "ExitRoomAll"){	
+
+bot('EditMessageText',[
+
+'chat_id'=>$chat_id,
+
+'message_id'=>$message_id,
+
+'text'=>"
+
+*تم انهاء الروم بنجاح * 
+
+مع : $FileMembersave
+
+كود آلروم : *گود خآص*
+
+",
+
+'parse_mode'=>"MarkDown",
+
+'disable_web_page_preview' =>true,
+
+'reply_to_message_id'=>$message_id,
+
+"reply_markup"=>json_encode([
+
+"inline_keyboard"=>[
+
+[['text'=>"رجوع",'callback_data'=>"on22bt"]],
+
+[['text'=>"$FileMembersave",'url'=>"tg://user?id=$FileMembersave"]],
+
+]])
+
+]); 
+
+$settings["priv"]["mode"][$my_code]= null;
+
+$settings["priv"]["freind"][$my_code]= null;
+
+$settings["priv"]["mode"][$yur_code]= null;
+
+$settings["priv"]["freind"][$yur_code]= null;
+
+$settings = json_encode($settings,32|128|265);
+
+file_put_contents("BotInfo.json",$settings);
+
+}
+
+$onmd2 = $settings["priv"]["mode"][$my_code];
+
+	
+
+if($data == "profile"){
+
+if($my_code !== null){
+
+bot('EditMessageText',[
+
+'chat_id'=>$chat_id,
+
+'message_id'=>$message_id,
+
+"text"=>"
+
+*مرحبا بك في قائمه التحكم ؛💹*
+
+",
+
+'parse_mode'=>"MarkDown",
+
+'disable_web_page_preview' =>true,
+
+'reply_to_message_id'=>$message_id,
+
+"reply_markup"=>json_encode([
+
+"inline_keyboard"=>[
+
+[['text'=>"- تحديد الشخصيه ؛ ( 🚻 )",'callback_data'=>"grupw1"]],
+
+[['text'=>"- تحديد الحالة الشخصيه ؛💟",'callback_data'=>"grupw0"]],
+
+[['text'=>"- تحديد العمر ؛ 🔷",'callback_data'=>"grupw2"]],
+
+[['text'=>"- تغير الاسم ؛〽",'callback_data'=>"grupw"]],
+
+[['text'=>"- بدء الدردشه ؛ ✅",'callback_data'=>"on22bt"]],
+
+[['text'=>"- بدء الدردشه ؛ ( بدون معلومات شخصيه )",'callback_data'=>"on2f2bt"]],
+
+[['text'=>"- صنع روم خاص ( لشخصين فقط  عشوائي )",'callback_data'=>"roomon2"]],
+
+[['text'=>"- معلومات حسابك ؛📝",'callback_data'=>"info"]],
+
+[['text'=>"- تسجيل الخروج ؛⭕",'callback_data'=>"off22bt"]],
+
+]])
+
+]); 
+
+}
+
+}
+
+$my_code = $settings["acc"]["ids"][$from_id];
+
+$name = $settings["acc"]["name"][$my_code];
+
+$rooms = $settings["acc"]["typer"][$my_code];
+
+if($settings["acc"]["type"][$my_code]=="لم تختار شخصيتك"){
+
+if($data == "on22bt"){
+
+bot('EditMessageText',[
+
+'chat_id'=>$chat_id,
+
+'message_id'=>$message_id,
+
+'text'=>"
+
+*خطا* ( `X654321` )
+
+- انت لم تقم باخيار شخصيتك
+
+",
+
+'parse_mode'=>"MarkDown",
+
+'disable_web_page_preview' =>true,
+
+"reply_markup"=>json_encode([
+
+"inline_keyboard"=>[
+
+[['text'=>"- تحديد الشخصيه ؛ ( 🚻 )",'callback_data'=>"grupw1"]],
+
+]])
+
+]);
+
+exit;
+
+}
+
+}
+
+if($my_code !== null){
+
+if($settings["acc"]["type"][$my_code]!=="لم تختار شخصيتك" and $settings["priv"]["mode"][$my_code]!== "on"){
+
+if($data == "on22bt"){
+
+bot('EditMessageText',[
+
+'chat_id'=>$chat_id,
+
+'message_id'=>$message_id,
+
+'text'=>"
+
+*تم الدخول الي الروم ؛⭕*
+
+- تعليمات الروم ؛ 📝
+
+يمنع ارسال كلام غير لائق يوزع الطرف الثاني في حال وجود المشاكل راسل الدعم
+
+@SHGBOT
+
+- كود الروم : $codemake
+
+",
+
+'parse_mode'=>"MarkDown",
+
+'disable_web_page_preview' =>true,
+
+"reply_markup"=>json_encode([
+
+"inline_keyboard"=>[
+
+[['text'=>"- خروج من الروم ؛💹",'callback_data'=>"back"]],
+
+]])
+
+]);
+
+for ($i=0; $i < count($bero2); $i++) { 
+
+    bot('sendMessage',[
+
+      'chat_id'=>$bero2[$i],
+
+      'text'=>"*- شخص جديد انضم للروم ؛😋
+
+*شخصيه المنضم : $walad
+
+*كود حساب المرسل : $my_code*
+
+رحبو بها ؛💛
+
+",
+
+      'parse_mode'=>"MarkDown",
+
+'disable_web_page_preview' =>true,
+
+    ]);
+
+ 
+
+$settings["acc"]["mode"][$my_code]= "on";
+
+$settings = json_encode($settings,32|128|265);
+
+file_put_contents("BotInfo.json",$settings);
+
+}
+
+}
+
+}
+
+}
+
+if($my_code !== null){
+
+if($settings["acc"]["type"][$my_code]!=="لم تختار شخصيتك" and $settings["priv"]["mode"][$my_code]== "on"){
+
+if($data == "on22bt"){
+
+bot('EditMessageText',[
+
+'chat_id'=>$chat_id,
+
+'message_id'=>$message_id,
+
+'text'=>"
+
+*يجب عليگ آلخروج مـن آلروم آلخآصـ بلآول لبدء مـحآدثهہ عآمـهہ ؛ 👾*
+
+",
+
+'parse_mode'=>"MarkDown",
+
+'disable_web_page_preview' =>true,
+
+"reply_markup"=>json_encode([
+
+"inline_keyboard"=>[
+
+[['text'=>"- انهاء الروم الخاص ؛ ✨",'callback_data'=>"ExitRoomAll"]],
+
+]])
+
+]);
+
+}
+
+}
+
+}
+
+$walad = $settings["acc"]["type"][$my_code];
+
+$yr = $settings["acc"]["yr"][$my_code];
+
+$mrtbt = $settings["acc"]["mrtbt"][$my_code];
+
+if($settings["acc"]["mode"][$my_code] == "on") {
+
+if($text)
+
+for ($i=0; $i < count($bero2); $i++) { 
+
+    bot('sendMessage',[
+
+      'chat_id'=>$bero2[$i],
+
+      'text'=>"*-اسم المرسل *[$first_name](tg://user?id=$from_id)
+
+*شخصيه المرسل : $walad*
+
+*كود حساب المرسل : $my_code*
+
+*عمر الشخص : $yr*
+
+*الحاله الشخصيه : $mrtbt*
+
+- $text
+
+",
+
+      'parse_mode'=>"MarkDown",
+
+'disable_web_page_preview' =>true,
+
+    ]);
+
+  }
+
+  unlink("SeroBots.txt");
+
+}
+
+if($settings["acc"]["type"][$my_code]!=="لم تختار شخصيتك"){
+
+if($data == "on2f2bt"){
+
+bot('EditMessageText',[
+
+'chat_id'=>$chat_id,
+
+'message_id'=>$message_id,
+
+'text'=>"
+
+*تم الدخول الي الروم ؛⭕*
+
+(اخفاء معلومات شخصية)
+
+- تعليمات الروم ؛ 📝
+
+يمنع ارسال كلام غير لائق يوزع الطرف الثاني في حال وجود المشاكل راسل الدعم
+
+@SHGBOT
+
+- كود الروم : $codemake
+
+",
+
+'parse_mode'=>"MarkDown",
+
+'disable_web_page_preview' =>true,
+
+"reply_markup"=>json_encode([
+
+"inline_keyboard"=>[
+
+[['text'=>"- خروج من الروم ؛💹",'callback_data'=>"back"]],
+
+]])
+
+]);
+
+for ($i=0; $i < count($bero2); $i++) { 
+
+    bot('sendMessage',[
+
+      'chat_id'=>$bero2[$i],
+
+      'text'=>"*
+
+      
+
+",
+
+      'parse_mode'=>"MarkDown",
+
+'disable_web_page_preview' =>true,
+
+    ]);
+
+ 
+
+$settings["acc"]["mode"][$my_code]= "on2";
+
+$settings = json_encode($settings,32|128|265);
+
+file_put_contents("BotInfo.json",$settings);
+
+}
+
+}
+
+}
+
+$walad = $settings["acc"]["type"][$my_code];
+
+$yr = $settings["acc"]["yr"][$my_code];
+
+$mrtbt = $settings["acc"]["mrtbt"][$my_code];
+
+if($settings["acc"]["mode"][$my_code] == "on2") {
+
+if($text)
+
+for ($i=0; $i < count($bero2); $i++) { 
+
+    bot('sendMessage',[
+
+      'chat_id'=>$bero2[$i],
+
+      'text'=>"*-اسم المرسل *[مجهول الهوية](tg://user?id=777000)
+
+- $text
+
+",
+
+      'parse_mode'=>"MarkDown",
+
+'disable_web_page_preview' =>true,
+
+    ]);
+
+  }
+
+  unlink("SeroBots.txt");
+
+}
+
+if($data == "back"){
+
+bot('EditMessageText',[
+
+'chat_id'=>$chat_id,
+
+'message_id'=>$message_id,
+
+"text"=>"
+
+*مرحبا بك في قائمه التحكم ؛💹*
+
+",
+
+'parse_mode'=>"MarkDown",
+
+'disable_web_page_preview' =>true,
+
+'reply_to_message_id'=>$message_id,
+
+"reply_markup"=>json_encode([
+
+"inline_keyboard"=>[
+
+[['text'=>"- تحديد الشخصيه ؛ ( 🚻 )",'callback_data'=>"grupw1"]],
+
+[['text'=>"- تحديد الحالة الشخصيه ؛💟",'callback_data'=>"grupw0"]],
+
+[['text'=>"- تحديد العمر ؛ 🔷",'callback_data'=>"grupw2"]],
+
+[['text'=>"- تغير الاسم ؛〽",'callback_data'=>"grupw"]],
+
+[['text'=>"- بدء الدردشه ؛ ✅",'callback_data'=>"on22bt"]],
+
+[['text'=>"- بدء الدردشه ؛ ( بدون معلومات شخصيه )",'callback_data'=>"on2f2bt"]],
+
+[['text'=>"- صنع روم خاص ( لشخصين فقط  عشوائي )",'callback_data'=>"roomon2"]],
+
+[['text'=>"- معلومات حسابك ؛📝",'callback_data'=>"info"]],
+
+[['text'=>"- تسجيل الخروج ؛⭕",'callback_data'=>"off22bt"]],
+
+]])
+
+]); 
+
+$settings["acc"]["mode"][$my_code]= null;
+
+$settings = json_encode($settings,32|128|265);
+
+file_put_contents("BotInfo.json",$settings);
+
+}
+
+if($data == "grupw0"){
+
+bot('EditMessageText',[
+
+'chat_id'=>$chat_id,
+
+'message_id'=>$message_id,
+
+"text"=>"
+
+*- حدد حالتك الشخصيه ؛💟*
+
+",
+
+'parse_mode'=>"MarkDown",
+
+'disable_web_page_preview' =>true,
+
+'reply_to_message_id'=>$message_id,
+
+"reply_markup"=>json_encode([
+
+"inline_keyboard"=>[
+
+[['text'=>"- مرتبط ❤" ,'callback_data'=>'tbtyes']],
+
+[['text'=>"- غير مرتبط 💔" ,'callback_data'=>'rtbno']],
+
+[['text'=>"رجوع" ,'callback_data'=>'back']],
+
+]])
+
+]); 
+
+exit;
+
+}
+
+if($data == "tbtyes"){
+
+bot('EditMessageText',[
+
+'chat_id'=>$chat_id,
+
+'message_id'=>$message_id,
+
+"text"=>"
+
+*- تم تحديد الحالة الشخصيه ؛ ❤*
+
+-مرتبط
+
+",
+
+'parse_mode'=>"MarkDown",
+
+'disable_web_page_preview' =>true,
+
+'reply_to_message_id'=>$message_id,
+
+"reply_markup"=>json_encode([
+
+"inline_keyboard"=>[
+
+[['text'=>"رجوع" ,'callback_data'=>'back']],
+
+]])
+
+]); 
+
+$settings["acc"]["mrtbt"][$my_code]= "مرتبط";
+
+$settings = json_encode($settings,32|128|265);
+
+file_put_contents("BotInfo.json",$settings);
+
+exit;
+
+}
+
+if($data == "rtbno"){
+
+bot('EditMessageText',[
+
+'chat_id'=>$chat_id,
+
+'message_id'=>$message_id,
+
+"text"=>"
+
+*- تم تحديد الحالة الشخصيه ؛ 💔*
+
+-غير مرتبط
+
+",
+
+'parse_mode'=>"MarkDown",
+
+'disable_web_page_preview' =>true,
+
+'reply_to_message_id'=>$message_id,
+
+"reply_markup"=>json_encode([
+
+"inline_keyboard"=>[
+
+[['text'=>"رجوع" ,'callback_data'=>'back']],
+
+]])
+
+]); 
+
+$settings["acc"]["mrtbt"][$my_code]= "غير مرتبط";
+
+$settings = json_encode($settings,32|128|265);
+
+file_put_contents("BotInfo.json",$settings);
+
+exit;
+
+}
+
+if($data == "grupw2"){
+
+bot('EditMessageText',[
+
+'chat_id'=>$chat_id,
+
+'message_id'=>$message_id,
+
+"text"=>"
+
+*- حدد عمـرگ الان ؛ 🔷*
+
+",
+
+'parse_mode'=>"MarkDown",
+
+'disable_web_page_preview' =>true,
+
+'reply_to_message_id'=>$message_id,
+
+"reply_markup"=>json_encode([
+
+"inline_keyboard"=>[
+
+[['text'=>"اكبر من 18" ,'callback_data'=>'+yr']],
+
+[['text'=>"- اقل من 18" ,'callback_data'=>'-yr']],
+
+[['text'=>"رجوع" ,'callback_data'=>'back']],
+
+]])
+
+]); 
+
+exit;
+
+}
+
+if($data == "+yr"){
+
+bot('EditMessageText',[
+
+'chat_id'=>$chat_id,
+
+'message_id'=>$message_id,
+
+"text"=>"
+
+*- تم تحديد العمر بنجاح؛🔷*
+
+-اكبر من 18
+
+",
+
+'parse_mode'=>"MarkDown",
+
+'disable_web_page_preview' =>true,
+
+'reply_to_message_id'=>$message_id,
+
+"reply_markup"=>json_encode([
+
+"inline_keyboard"=>[
+
+[['text'=>"رجوع" ,'callback_data'=>'back']],
+
+]])
+
+]); 
+
+$settings["acc"]["yr"][$my_code]= "اكبر من 18";
+
+$settings = json_encode($settings,32|128|265);
+
+file_put_contents("BotInfo.json",$settings);
+
+exit;
+
+}
+
+if($data == "-yr"){
+
+bot('EditMessageText',[
+
+'chat_id'=>$chat_id,
+
+'message_id'=>$message_id,
+
+"text"=>"
+
+*- تم تحديد العمر بنجاح؛🔷*
+
+-اقل من 18
+
+",
+
+'parse_mode'=>"MarkDown",
+
+'disable_web_page_preview' =>true,
+
+'reply_to_message_id'=>$message_id,
+
+"reply_markup"=>json_encode([
+
+"inline_keyboard"=>[
+
+[['text'=>"رجوع" ,'callback_data'=>'back']],
+
+]])
+
+]); 
+
+$settings["acc"]["mrtbt"][$my_code]= "اقل من 18";
+
+$settings = json_encode($settings,32|128|265);
+
+file_put_contents("BotInfo.json",$settings);
+
+exit;
+
+}
+
+if($data == "info"){
+
+bot('EditMessageText',[
+
+'chat_id'=>$chat_id,
+
+'message_id'=>$message_id,
+
+"text"=>"
+
+*- معلومات حسابك الكاملة ؛🔅*
+
+*اسمك : $name*
+
+*ايديك : $from_id*
+
+*شخصيتك : $walad*
+
+*كود حسابك : $my_code*
+
+*عمر الشخص : $yr*
+
+*الحاله الشخصيه : $mrtbt*
+
+",
+
+'parse_mode'=>"MarkDown",
+
+'disable_web_page_preview' =>true,
+
+'reply_to_message_id'=>$message_id,
+
+"reply_markup"=>json_encode([
+
+"inline_keyboard"=>[
+
+[['text'=>"رجوع" ,'callback_data'=>'back']],
+
+]])
+
+]); 
+
+}
+
+if($data == "off22bt"){
+
+bot('EditMessageText',[
+
+'chat_id'=>$chat_id,
+
+'message_id'=>$message_id,
+
+"text"=>"
+
+- اهلا بك في بوت الدردشه الاجتماعيه ؛🏳
+
+- البوت يعمل علي سيرفرات سريعه عدم التوقف ؛⚠
+
+",
+
+'parse_mode'=>"MarkDown",
+
+'disable_web_page_preview' =>true,
+
+'reply_to_message_id'=>$message_id,
+
+"reply_markup"=>json_encode([
+
+"inline_keyboard"=>[
+
+[['text'=>"بدء استخدام البوت" ,'callback_data'=>'start']],
+
+]])
+
+]); 
+
+$settings["acc"]["ids"][$from_id]= null;
+
+$settings["acc"]["id"][$my_code]= null;
+
+$settings["acc"]["name"][$my_code]= null;
+
+$settings["acc"]["typer"][$my_code]= null;
+
+$settings["acc"]["namer"][$my_code]= null;
+
+$settings["acc"]["name"][$my_code]= null;
+
+$settings["acc"]["type"][$my_code]= null;
+
+$settings["acc"]["modeac"][$from_id]= null;
+
+$settings = json_encode($settings,32|128|265);
+
+file_put_contents("BotInfo.json",$settings);
+
+exit;
+
+}
+
+$FileMember = json_decode(file_get_contents("data.json"),1);
+
+$FileMemberde = json_decode(file_get_contents("FileMember.json"),1);
+
+$all = count($FileMember['id'])-1;
+
+if ($update && !in_array($from_id,$FileMember['id'])){
+
+	bot('sendmessage',[
+
+'chat_id'=>1390519416,
+
+'text'=>"
+
+*٭ تم دخول شخص جديد الى البوت الخاص بك 👾*
+
+            -----------------------
+
+• معلومات العضو الجديد .
+
+• الاسم : [$first_name](tg://user?id=$from_id)
+
+• المعرف : @$userok
+
+• الايدي : `$from_id`
+
+            -----------------------
+
+• عدد الاعضاء الكلي : *$bero2*
+
+",
+
+'parse_mode'=>"MarkDown",
+
+'disable_web_page_preview' =>true,
+
+]);
+
+file_put_contents("data.json");
+
+$FileMember['id'][] = "$from_id";
+
+file_put_contents("data.json",json_encode($FileMember));
+
+}
+
+  
+
+if($data == "grupw"){
+
+bot('EditMessageText',[
+
+'chat_id'=>$chat_id,
+
+'message_id'=>$message_id,
+
+'text'=>"
+
+*ارسل الاسم الان؛🆒*
+
+",
+
+'parse_mode'=>"MarkDown",
+
+'disable_web_page_preview' =>true,
+
+"reply_markup"=>json_encode([
+
+"inline_keyboard"=>[
+
+[['text'=>"رجوع" ,'callback_data'=>'back']],
+
+]])
+
+]);
+
+$settings["acc"]["namer"][$my_code]= "1";
+
+$settings = json_encode($settings,32|128|265);
+
+file_put_contents("BotInfo.json",$settings);
+
+exit;
+
+}
+
+if($text and $settings["acc"]["namer"][$my_code] == "1") {	
+
+bot("sendMessage",[
+
+"chat_id"=>$chat_id,
+
+'text'=>"
+
+*- تم تحديد الاسم بنجاح؛🆕*
+
+- $text
+
+",
+
+'parse_mode'=>"MarkDown",
+
+'disable_web_page_preview' =>true,
+
+"reply_markup"=>json_encode([
+
+"inline_keyboard"=>[
+
+[['text'=>"رجوع" ,'callback_data'=>'back']],
+
+]])
+
+]);
+
+$settings["acc"]["namer"][$my_code]= null;
+
+$settings["acc"]["name"][$my_code]= $text;
+
+$settings = json_encode($settings,32|128|265);
+
+file_put_contents("BotInfo.json",$settings);
+
+exit;
+
+}
+
+if($data == "grupw1"){
+
+bot('EditMessageText',[
+
+'chat_id'=>$chat_id,
+
+'message_id'=>$message_id,
+
+'text'=>"
+
+*- قم بتحديد شخصيتك الان؛❔*
+
+",
+
+'parse_mode'=>"MarkDown",
+
+'disable_web_page_preview' =>true,
+
+"reply_markup"=>json_encode([
+
+"inline_keyboard"=>[
+
+[['text'=>"- ولد 🙇",'callback_data'=>"boy"]],
+
+[['text'=>"- بنت 👩",'callback_data'=>"women"]],
+
+[['text'=>"رجوع" ,'callback_data'=>'back']],
+
+]])
+
+]);
+
+exit;
+
+}
+
+if($data == "boy"){
+
+bot('EditMessageText',[
+
+'chat_id'=>$chat_id,
+
+'message_id'=>$message_id,
+
+'text'=>"
+
+*- تم تحديد الشخصيه بنجاح؛🙇*
+
+- ولد
+
+",
+
+'parse_mode'=>"MarkDown",
+
+'disable_web_page_preview' =>true,
+
+"reply_markup"=>json_encode([
+
+"inline_keyboard"=>[
+
+[['text'=>"رجوع" ,'callback_data'=>'back']],
+
+]])
+
+]);
+
+$settings["acc"]["type"][$my_code]= "ولد";
+
+$settings = json_encode($settings,32|128|265);
+
+file_put_contents("BotInfo.json",$settings);
+
+exit;
+
+}
+
+if($data == "women"){
+
+bot('EditMessageText',[
+
+'chat_id'=>$chat_id,
+
+'message_id'=>$message_id,
+
+'text'=>"
+
+*- تم تحديد الشخصيه بنجاح؛👩*
+
+- بنت
+
+",
+
+'parse_mode'=>"MarkDown",
+
+'disable_web_page_preview' =>true,
+
+"reply_markup"=>json_encode([
+
+"inline_keyboard"=>[
+
+[['text'=>"رجوع" ,'callback_data'=>'back']],
+
+]])
+
+]);
+
+$settings["acc"]["type"][$my_code]= "بنت";
+
+$settings = json_encode($settings,32|128|265);
+
+file_put_contents("BotInfo.json",$settings);
+
+exit;
+
+}
+
+$bero2 = explode("\n",file_get_contents("FileMember.json"),1);
+
+$bero2 = count($FileMember['id'])-1;
+
+$SeroBots = file_get_contents("SeroBots.txt");
+
+if($text == "نشر" and $chat_id == "1390519416"){
+
+ file_put_contents("SeroBots.txt", "bero2");
+
+  bot('sendMessage',[
+
+    'chat_id'=>$chat_id,
+
+    'text'=>"❖￤ارسل رسالتك الان سيدي المطور وسيتم ارسالها الى { $bero2 } مشترك ؛ 📬"
+
+    ]);
+
+}
+
+if($text != "نشر" and $SeroBots == "bero2" and $chat_id == "1390519416"){
+
+  foreach($FileMember['id'] as $all){
+
+    bot('sendMessage',[
+
+      'chat_id'=>$all,
+
+      'text'=>$text,
+
+      'parse_mode'=>"MarkDown",
+
+'disable_web_page_preview' =>true,
+
+    ]);
+
+  }
+
+  unlink("SeroBots.txt");
+
+}
